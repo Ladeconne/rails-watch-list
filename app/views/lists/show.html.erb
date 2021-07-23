@@ -16,13 +16,11 @@
     <% else %>
       <% @list.bookmarks.each do |bookmark|%>
       <div class="col-lg-3 col-md-4 col-xs-6">
-        <%= link_to bookmark_path(bookmark), style: "text-decoration: none;" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bookmark.movie.poster_url %>)">
             <%= bookmark.movie.title %>
             <p><%= bookmark.comment %></p>
             <%= link_to  "X", bookmark_path(bookmark), class: "btn-cross", method: :delete, data: { confirm: "Are you sure?" }  %>
           </div>
-        <% end %>
       </div>
       <% end %>
     <% end %>
