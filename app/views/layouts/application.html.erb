@@ -12,6 +12,7 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%= render 'shared/flash' if !flash.empty? %>
+  <%= yield %>
   </body>
 </html>

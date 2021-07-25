@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show, :destroy]
   def index
     @lists = List.all
   end
 
   def show
-    @list = List.find(params[:id])
     @movies = @list.movies
   end
 
@@ -23,6 +23,15 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    flash[:notice] = "You have successfully delete the list #{@list.name}."
+    redirect_to root_url
+  end
+
+  def set_list
+    @list = List.find(params[:id])
+  end
   def list_params
     params.require(:list).permit(:name, :photo)
   end

@@ -13,8 +13,9 @@
     <div class="col-lg-3 col-md-4 col-xs-6">
       <%= link_to list_path(list), style: "text-decoration: none;" do %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
-          <%= list.name %>
+          <h2><%= list.name %></h2>
           <p>Number of saved movies: <%= list.bookmarks.length %></p>
+          <%= link_to  "X", list_path(list), class: "btn-cross", method: :delete, data: { confirm: "Are you sure?" }  %>
         </div>
       <% end %>
     </div>
